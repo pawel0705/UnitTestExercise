@@ -1,30 +1,33 @@
 ﻿using System;
 
-namespace Pluralsight.UnitTestDemo.Api
+namespace Benday.WebCalculator.Api
 {
-    public class Calculator
+
+    public class Calculator : ICalculatorService
     {
-        public int Add(int value1, int value2)
+        public double Add(double value1, double value2)
         {
             return value1 + value2;
         }
 
-        public int Substract(int value1, int value2)
+        public double Subtract(double value1, double value2)
         {
             return value1 - value2;
         }
 
-        public int Multiply(int value1, int value2)
+        public double Multiply(double value1, double value2)
         {
             return value1 * value2;
         }
 
-        public int Divide(int value1, int value2)
+        public double Divide(double value1, double value2)
         {
             if (value2 == 0)
             {
-                throw new InvalidOperationException("Argument cannot be zero.");
+                throw new InvalidOperationException(
+                    "Argument cannot be zero.");
             }
+
             return value1 / value2;
         }
     }

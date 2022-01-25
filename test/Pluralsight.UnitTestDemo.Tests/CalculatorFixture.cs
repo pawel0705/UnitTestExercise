@@ -1,8 +1,8 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pluralsight.UnitTestDemo.Api;
 using System;
+using Benday.WebCalculator.Api;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Pluralsight.UnitTestDemo.Tests
+namespace Benday.WebCalculator.Tests
 {
     [TestClass]
     public class CalculatorFixture
@@ -13,9 +13,7 @@ namespace Pluralsight.UnitTestDemo.Tests
             _SystemUnderTest = null;
         }
 
-
         private Calculator _SystemUnderTest;
-
         public Calculator SystemUnderTest
         {
             get
@@ -29,65 +27,68 @@ namespace Pluralsight.UnitTestDemo.Tests
             }
         }
 
-
         [TestMethod]
         public void Add()
         {
             // arrange
-            int value1 = 2;
-            int value2 = 3;
-            int expected = 5;
+            double value1 = 2;
+            double value2 = 3;
+            double expected = 5;
 
             // act
-            int actual = SystemUnderTest.Add(value1, value2);
+            double actual = SystemUnderTest.Add(
+                value1, value2);
 
             // assert
-            Assert.AreEqual<int>(expected, actual, "Wrong result");
+            Assert.AreEqual<double>(expected, actual, "Wrong result.");
         }
 
         [TestMethod]
-        public void Substract()
+        public void Subtract()
         {
             // arrange
-            int value1 = 6;
-            int value2 = 2;
-            int expected = 4;
+            double value1 = 6;
+            double value2 = 2;
+            double expected = 4;
 
             // act
-            int actual = SystemUnderTest.Substract(value1, value2);
+            double actual = SystemUnderTest.Subtract(
+                value1, value2);
 
             // assert
-            Assert.AreEqual<int>(expected, actual, "Wrong result");
+            Assert.AreEqual<double>(expected, actual, "Wrong result.");
         }
 
         [TestMethod]
         public void Multiply()
         {
             // arrange
-            int value1 = 6;
-            int value2 = 2;
-            int expected = 12;
+            double value1 = 6;
+            double value2 = 2;
+            double expected = 12;
 
             // act
-            int actual = SystemUnderTest.Multiply(value1, value2);
+            double actual = SystemUnderTest.Multiply(
+                value1, value2);
 
             // assert
-            Assert.AreEqual<int>(expected, actual, "Wrong result");
+            Assert.AreEqual<double>(expected, actual, "Wrong result.");
         }
 
         [TestMethod]
         public void Divide()
         {
             // arrange
-            int value1 = 6;
-            int value2 = 2;
-            int expected = 3;
+            double value1 = 6;
+            double value2 = 2;
+            double expected = 3;
 
             // act
-            int actual = SystemUnderTest.Divide(value1, value2);
+            double actual = SystemUnderTest.Divide(
+                value1, value2);
 
             // assert
-            Assert.AreEqual<int>(expected, actual, "Wrong result");
+            Assert.AreEqual<double>(expected, actual, "Wrong result.");
         }
 
         [TestMethod]
@@ -95,11 +96,12 @@ namespace Pluralsight.UnitTestDemo.Tests
         public void DivideByZeroThrowsException()
         {
             // arrange
-            int value1 = 6;
-            int value2 = 0;
+            double value1 = 6;
+            double value2 = 0;
 
             // act
-            int actual = SystemUnderTest.Divide(value1, value2);
+            double actual = SystemUnderTest.Divide(
+                value1, value2);
         }
     }
 }
