@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pluralsight.UnitTestDemo.Api;
+using System;
 
 namespace Pluralsight.UnitTestDemo.Tests
 {
@@ -87,6 +88,18 @@ namespace Pluralsight.UnitTestDemo.Tests
 
             // assert
             Assert.AreEqual<int>(expected, actual, "Wrong result");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void DivideByZeroThrowsException()
+        {
+            // arrange
+            int value1 = 6;
+            int value2 = 0;
+
+            // act
+            int actual = SystemUnderTest.Divide(value1, value2);
         }
     }
 }
